@@ -37,6 +37,26 @@ def incoming(request):
 
     response = requests.post(CLEVER_OAUTH_URL, data=json.dumps(payload), headers=headers).json()
 
-    #TODO handle error when access token not there
+    # TODO handle error when access token not there
 
-    return response['access_token']
+    token = response['access_token']
+
+    # Determine identity of authenticated user
+    bearer_headers = {
+        'Authorization': 'Bearer {token}'.format(token=token)
+    }
+
+    results = requests.get(CLEVER_API_BASE_URL + '/me', headers=bearer_headers).json()
+    user_id = results['data']['id']
+    user_type = results['data']['type']
+    user_district = results['data']['district']
+
+    if user_type == 'district_admin':
+        results = requests.get(CLEVER_API_BASE_URL + '/v1.1/district_admins/' + user_id, headers=bearer_headers).json()
+        user_first_name = str(results['data']['name']['first'])
+        user_last_name = str(results['data']['name']['last'])
+        message = 'Hello ' + user_first_name + ' ' + user_last_name
+    else:
+        message = 'TODO'
+
+    return  message
