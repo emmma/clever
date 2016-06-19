@@ -15,7 +15,7 @@ CLIENT_SECRET = os.environ['CLIENT_SECRET']
 
 
 # Clever redirect URIs must be preregistered for your app in your Clever developer dashboard.
-REDIRECT_URI = 'http://localhost:5000/oauth'
+REDIRECT_URL = 'http://localhost:5000/oauth'
 
 CLEVER_OAUTH_URL = 'https://clever.com/oauth/tokens'
 CLEVER_API_BASE_URL = 'https://api.clever.com'
@@ -27,7 +27,7 @@ def incoming(request):
     payload = {
         'code': code,
         'grant_type': 'authorization_code',
-        'redirect_uri': REDIRECT_URI
+        'redirect_uri': REDIRECT_URL
     }
 
     headers = {
@@ -37,26 +37,34 @@ def incoming(request):
 
     response = requests.post(CLEVER_OAUTH_URL, data=json.dumps(payload), headers=headers).json()
 
-    # TODO handle error when access token not there
+    if 'access_token' in response:
+        token = response['access_token']
+        results = user(token)
+        message = results
+    else:
+    # Example error response: {u'error_description': u'invalid code', u'error': u'invalid_grant'}
+        message = response['error_description']
+    return message
 
-    token = response['access_token']
+def user(token):
+# Determine identity of authenticated user
 
-    # Determine identity of authenticated user
-    bearer_headers = {
+    headers = {
         'Authorization': 'Bearer {token}'.format(token=token)
     }
 
-    results = requests.get(CLEVER_API_BASE_URL + '/me', headers=bearer_headers).json()
-    user_id = results['data']['id']
-    user_type = results['data']['type']
-    user_district = results['data']['district']
+    me = requests.get(CLEVER_API_BASE_URL + '/me', headers=headers).json()
 
-    if user_type == 'district_admin':
-        results = requests.get(CLEVER_API_BASE_URL + '/v1.1/district_admins/' + user_id, headers=bearer_headers).json()
+    user_id = me['data']['id']
+    user_type = me['data']['type']
+    user_district = me['data']['district']
+
+    if me['data']['type'] == 'district_admin':
+        results = requests.get(CLEVER_API_BASE_URL + '/v1.1/district_admins/' + user_id, headers=headers).json()
         user_first_name = str(results['data']['name']['first'])
         user_last_name = str(results['data']['name']['last'])
         message = 'Hello ' + user_first_name + ' ' + user_last_name
     else:
         message = 'TODO'
 
-    return  message
+    return message
