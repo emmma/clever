@@ -143,6 +143,8 @@ Using the Bearer header and the bearer token for the user, you can also now use 
 | type | Clever [user type]((https://dev.clever.com/instant-login/users)) (i.e. `district_admin`)|
 |district | `district_id` of the user |
 
+Now that you have the `id` of this district admin, let's call the /district_admins/{id} API to get more information, like the first and last name of the user.
+
 **Sample request**
 
 `GET` `https://api.clever.com/district_admins/{id}`
