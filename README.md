@@ -190,16 +190,20 @@ This will launch the app on your machine.  Flask will also log debugging informa
 You can go to a web browser of your choice and type in the URL provided (e.g. http://127.0.0.1:5000/) to interact with the app.
 
 ## Additional Resources
+
 #### Clever
 * [About Clever Instant Login](https://dev.clever.com/instant-login/)
 * [Implementing Clever SSO](https://dev.clever.com/instant-login/implementation)
 * [Log in with Clever](https://dev.clever.com/instant-login/log-in-with-clever)
 * [Testing Your Integration](https://dev.clever.com/instant-login/testing)
+
 #### Flask
+
 * [Flask](http://flask.pocoo.org/)
 * [Application Errors](http://flask.pocoo.org/docs/0.11/errorhandling/)
 
 #### Extraneous
+
 * [HTTP Status and Error Codes](https://cloud.google.com/storage/docs/json_api/v1/status-codes)
 * [Python `requests.status codes`](https://github.com/kennethreitz/requests/blob/master/requests/status_codes.py)
 
