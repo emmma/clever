@@ -8,3 +8,6 @@ creds.*
 
 # Logging
 *.log
+
+# If using Heroku
+*.env
