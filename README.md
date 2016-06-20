@@ -159,7 +159,8 @@ If you'd like to contribute to the project or try an unreleased version of the s
 
 ```bash
 # clone the repository
-git clone git@github.com:emmolam/clever.git
+git clone git@github.com:emmma/clever.git
+
 cd clever
 
 # install dependencies
