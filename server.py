@@ -17,7 +17,7 @@ CLIENT_ID = os.environ['CLIENT_ID']
 CLIENT_SECRET = os.environ['CLIENT_SECRET']
 
 # Clever redirect URIs must be configured from your Clever developer dashboard.
-REDIRECT_URL = 'http://localhost:5000/oauth'
+REDIRECT_URL = 'https://mighty-gorge-71796.herokuapp.com/oauth'
 
 CLEVER_OAUTH_URL = 'https://clever.com/oauth/tokens'
 CLEVER_API_BASE_URL = 'https://api.clever.com'
