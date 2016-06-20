@@ -23,5 +23,5 @@ def results(name=None):
     return render_template('results.html', name=name)
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    port = int(os.environ.get('PORT', 33507))
+    app.run(debug=True, port=port)

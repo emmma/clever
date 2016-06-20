@@ -11,8 +11,6 @@ import urllib
 from flask import request
 from logging.handlers import RotatingFileHandler
 
-import app
-
 
 # Obtain your Client ID and Client secret from your Clever developer dashboard
 CLIENT_ID = os.environ['CLIENT_ID']
