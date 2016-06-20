@@ -2,6 +2,7 @@
 [Clever APIs](https://dev.clever.com/) empower developers and school districts everywhere with a simple, secure single sign-on (SSO) solution for today's education applications.  By integrating with Clever, you'll get students and teachers using your app in a jiffy.
 
 Use **Clever Instant Login** for the following core use cases:
+
 1. **Sign users in from district portals** - Students and teachers can sign in to your web application from Clever
 2. **Log in with Clever** - Students and teachers can sign in to your app using Clever
 
@@ -17,6 +18,7 @@ This Flask implementation will handle the redirect from Clever, determine the us
 # Getting Started
 ### Requirements
 Whether you'd like to integrate today or play around with the sample Flask app, you'll need a few things in place first.
+
 1. Go to https://apps.clever.com/signup to register your app with Clever.
 2. Configure the **OAuth Settings** for your app in the [Clever App Dashboard](https://account.clever.com/partner/applications).
 3. Configure your [Sandbox District](https://dev.clever.com/guides/creating-district-sandboxes) to build and test your integration.
@@ -41,6 +43,7 @@ When a user clicks on the **Instant Login Link**, Clever redirects the user to y
 **Note**: For security reasons, the `code` generated for the user is no longer valid after it has been used to exchange for an access token and can expire before it is exchanged for an access token.
 
 **Parameters**
+
 | Field | Type | Description |
 |-----------|-------------|-------------------|
 | `redirect_uri` | `string` | The URL for your application where users will be sent from the Clever portal and can be configured in Clever Developer Dashboard settings (i.e. ``http://localhost:5000/oauth``)|
@@ -63,6 +66,7 @@ Create a [`Basic Authentication`](https://tools.ietf.org/html/rfc6749) header us
 ``Authorization: <type> <credentials>``
 
 **Parameters**
+
 | Field | Description |
 |------|-------------|
 | `type` |  HTTP authentication scheme type (e.g.`Basic`) |
@@ -83,6 +87,7 @@ Use this header to make the following API request to Clever and get the access t
 ``POST https://clever.com/oauth/tokens``
 
 **Parameters**
+
 | Field | Description |
 |-------|-------------|
 | `code` | The code received from Clever and is used to exchange for the user's access token |
@@ -111,6 +116,7 @@ Create a [`Bearer`](https://tools.ietf.org/html/rfc6749) header using the bearer
 ``Authorization: <type> <credentials>``
 
 **Parameters**
+
 | Field | Description |
 |------|-------------|
 | `type` |  HTTP authentication scheme type (e.g.`Bearer`) |
@@ -130,6 +136,7 @@ Using the Bearer header and the bearer token for the user, you can also now use 
 `GET` `https://api.clever.com/me`
 
 **Response**
+
 | Field | Description|
 |--------|------------|
 | id | A unique user `id` is required for requests from the Clever [Data API](https://clever.com/developers/docs/explorer#api_data) set
