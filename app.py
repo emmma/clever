@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask
 from flask import request
 from flask import render_template
 
@@ -6,22 +6,22 @@ import server
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/oauth', methods=['GET'])
 def oauth():
-    return server.incoming(request)
+    name = server.oauth(request)
+    return render_template('results.html', name=name)
 
-@app.route('/success')
-def success():
-    return render_template('success.html')
 
-@app.route('/error')
-def error():
-    return render_template('error.html')
+@app.route('/results')
+def results(name=None):
+    return render_template('results.html', name=name)
 
-if __name__=='__main__':
+if __name__ == '__main__':
     app.debug = True
     app.run()

@@ -5,3 +5,6 @@ venv/
 
 # Credentials
 creds.*
+
+# Logging
+*.log
