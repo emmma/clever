@@ -11,7 +11,7 @@ For additional use cases, see: [About Clever Instant Login](https://dev.clever.c
 To get started, we'll be providing you a general overview of **Use Case #1** and a sample implementation using a basic Python [Flask](http://flask.pocoo.org/) app.
 
 ### Scenario
-A district admin is using the Clever portal to manage various education apps for schools, students, and teachers in her district.  From the Clever portal, she sees an icon to your app, and we'd like to give her the ability to sign right -- without fumbling over usernames and passwords. 
+A district admin is using the Clever portal to manage various education apps for schools, students, and teachers in her district.  From the Clever portal, she sees an bookmarked icon of your app, and we'd like to give her the ability to sign right in -- without fumbling over usernames and passwords. 
 
 This Flask implementation will handle the redirect from Clever, determine the user id, and display the first and last name of the user.
 
