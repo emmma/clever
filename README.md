@@ -165,7 +165,13 @@ From *server.py*, we can save the first and last name of the authenticated user,
             user_last_name = str(results['data']['name']['last'])
 ```
 
-And with that, you have the first and last name of the user!
+And with that, you have the first and last name of the user!  
+
+### Recap
+This concludes our overview and walkthough with a basic Flask app.  We've covered:
+* Set up OAuth 2.0 integration for Use case #1: signing users in from Clever (district_admins only)
+* Get the bearer token for the user
+* Make two (2) API calls on behalf of the user to get the first and last name
 
 # Demo
 This sample app has been configured to run on [Heroku](https://www.heroku.com/).  If you'd like to run a version locally, you can change the following lines:
