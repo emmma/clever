@@ -147,7 +147,7 @@ Now that you have the `id` of this district admin, let's call the /district_admi
 
 **Sample request**
 
-`GET` `https://api.clever.com/district_admins/{id}`
+`GET` `https://api.clever.com/district_admins/abcdeadfe740eed01000004dd`
 
 **Sample response**
 ```
@@ -155,6 +155,20 @@ TODO
 ```
 
 # Demo
+This sample app has been configured to run on [Heroku](https://www.heroku.com/).  If you'd like to run a version locally, you can change the following lines:
+
+In *app.py*, specify the port (i.e. 5000).
+```python
+    port = int(os.environ.get('PORT'))
+    app.run(debug=False, host='0.0.0.0', port=port)
+```
+
+In *server.py*, replace the REDIRECT_URL (i.e. http://localhost.com:5000/oauth):
+```python
+# Clever redirect URIs must be configured from your Clever developer dashboard.
+REDIRECT_URL = 'https://mighty-gorge-71796.herokuapp.com/oauth'
+```
+
 ### Installation
 If you'd like to contribute to the project or try an unreleased version of the sample Flask app locally, run the following commands in your terminal:
 
@@ -208,6 +222,7 @@ You can go to a web browser of your choice and type in the URL provided (e.g. ht
 
 * [HTTP Status and Error Codes](https://cloud.google.com/storage/docs/json_api/v1/status-codes)
 * [Python `requests.status codes`](https://github.com/kennethreitz/requests/blob/master/requests/status_codes.py)
+* [Deploying Python and Django apps on Heroku](https://devcenter.heroku.com/articles/deploying-python)
 
 ## TODO
 Do you see ways to improve the demo app for new devs like yourself on the Clever platform?  If you see ways to improve the demo app, feel free to contribute to the project!
