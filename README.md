@@ -154,6 +154,19 @@ Now that you have the `id` of this district admin, let's call the /district_admi
 TODO
 ```
 
+From *server.py*, we can save the first and last name of the authenticated user, like so:
+```python
+        if results['data']['type'] == 'district_admin':
+            response = requests.get(
+                CLEVER_API_BASE_URL + '/v1.1/district_admins/' + user_id,
+                headers=headers)
+            results = response.json()
+            user_first_name = str(results['data']['name']['first'])
+            user_last_name = str(results['data']['name']['last'])
+```
+
+And with that, you have the first and last name of the user!
+
 # Demo
 This sample app has been configured to run on [Heroku](https://www.heroku.com/).  If you'd like to run a version locally, you can change the following lines:
 
