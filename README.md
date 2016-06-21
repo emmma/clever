@@ -244,13 +244,13 @@ You can go to a web browser of your choice and type in the URL provided (e.g. ht
 * [Deploying Python and Django apps on Heroku](https://devcenter.heroku.com/articles/deploying-python)
 
 ## TODO
-Do you see ways to improve the demo app for new devs like yourself on the Clever platform?  Feel free to contribute to the project!  Noted TODOs are (and are not limited to):
+Do you see ways to improve the demo app for new devs like yourself on the Clever platform?  Feel free to contribute to the project!  Some ideas:
 
-
+* Implement support for Use case #2: use Clever login to sign in users to your app
 * Optimize error handling for retry() for HTTP 4XX and HTTP 5XX errors
 * Set up better logging for errors and exceptions
-* Set up automated tests
-* Make additional calls to the Clever Data API
+* Set up automated tests: capture exceptions and edge cases
+* Make additional calls to the Clever Data API: more Clever data
 
 # Contact Us 
 Questions, feature requests, or feedback of any kind is always welcome! We'd love to hear from you at tech-support@clever.com.  Empower students and teachers today.  *Do it the Clever way.*
