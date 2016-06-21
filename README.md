@@ -169,9 +169,9 @@ And with that, you have the first and last name of the user!
 
 ### Recap
 This concludes our overview and walkthough with a basic Flask app.  We've covered:
-* Set up OAuth 2.0 integration for Use case #1: signing users in from Clever (district_admins only)
-* Get the bearer token for the user
-* Make two (2) API calls on behalf of the user to get the first and last name
+* Setting up OAuth 2.0 integration to sign in users in from Clever
+* Getting the bearer token for the user
+* Making two (2) API calls on behalf of the user to get the first and last name (`district_admins` only)
 
 # Demo
 This sample app has been configured to run on [Heroku](https://www.heroku.com/).  If you'd like to run a version locally, you can change the following lines:
@@ -244,7 +244,7 @@ You can go to a web browser of your choice and type in the URL provided (e.g. ht
 * [Deploying Python and Django apps on Heroku](https://devcenter.heroku.com/articles/deploying-python)
 
 ## TODO
-Do you see ways to improve the demo app for new devs like yourself on the Clever platform?  If you see ways to improve the demo app, feel free to contribute to the project!
+Do you see ways to improve the demo app for new devs like yourself on the Clever platform?  Feel free to contribute to the project!  Noted TODOs are (and are not limited to):
 
 
 * Optimize error handling for retry() for HTTP 4XX and HTTP 5XX errors
